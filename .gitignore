@@ -26,3 +26,5 @@ nbdist/
 springboot.imi
 mvnw.cmd
 mvnw
+.mvn
+/src/test
