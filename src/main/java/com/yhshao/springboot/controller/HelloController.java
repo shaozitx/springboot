@@ -1,4 +1,4 @@
-package com.yhshao.springboot.test;
+package com.yhshao.springboot.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,7 +15,7 @@ public class HelloController {
     @RequestMapping("/hello")
     @ResponseBody
     public String sayhellow(){
-        return "hello wordddddld";
+        return "hello world";
 
     }
 }
