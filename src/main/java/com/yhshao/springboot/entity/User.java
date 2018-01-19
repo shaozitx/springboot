@@ -14,7 +14,7 @@ public class User {
     String name;
     @NotNull
     String password;
-    @WorkOverTime
+    @WorkOverTime(max = 8)
     Integer overworktime;
 
 
