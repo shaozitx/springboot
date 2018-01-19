@@ -36,7 +36,7 @@ public class UserReditRestController {
             return;
         }
 
-        System.out.printf(user.getName() +"and userpass" + user.getPassword() );
+        System.out.println("name :" + user.getName() +" and pass:" + user.getPassword() );
 
         return;
     }
