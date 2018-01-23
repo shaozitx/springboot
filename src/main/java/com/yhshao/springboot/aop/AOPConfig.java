@@ -23,7 +23,7 @@ public class AOPConfig {
             System.out.println("args:"+ Arrays.asList(args));
             // 调用方法
             Object o = pjp.proceed();
-            System.out.printf("return:" +o);
+            System.out.println("return:" +o);
             return o;
 
         }catch (Throwable e){

@@ -35,7 +35,6 @@ public class HelloController {
         User user = new User();
         user.setId(1);
         user.setName("yh");
-        user.setPassword("111");
         modelAndView.addObject("user",user);
         modelAndView.setViewName("/userInfo");
         return modelAndView;
@@ -46,7 +45,6 @@ public class HelloController {
         User user = new User();
         user.setId(1);
         user.setName("yh");
-        user.setPassword("111");
         return user;
     }
 

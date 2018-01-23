@@ -3,6 +3,7 @@ package com.yhshao.springboot.entity;
 import com.yhshao.springboot.anotation.WorkOverTime;
 
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
 /**
  * Created by shaoqi on 18/1/18.
@@ -12,18 +13,25 @@ public class User {
     Integer id;
     @NotNull
     String name;
-    @NotNull
-    String password;
-    @WorkOverTime(max = 8)
-    Integer overworktime;
 
+    Integer department_id;
 
-    public Integer getOverworktime() {
-        return overworktime;
+    Date create_time;
+
+    public Integer getDepartment_id() {
+        return department_id;
     }
 
-    public void setOverworktime(Integer overworktime) {
-        this.overworktime = overworktime;
+    public void setDepartment_id(Integer department_id) {
+        this.department_id = department_id;
+    }
+
+    public Date getCreate_time() {
+        return create_time;
+    }
+
+    public void setCreate_time(Date create_time) {
+        this.create_time = create_time;
     }
 
     public Integer getId() {
@@ -42,11 +50,5 @@ public class User {
         this.name = name;
     }
 
-    public String getPassword() {
-        return password;
-    }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
 }
