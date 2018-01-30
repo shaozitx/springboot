@@ -51,6 +51,7 @@ public class ErrorController extends AbstractErrorController {
         response.setStatus(status);
         if (!isJsonRequest(request)){
             // 模板显示错误信息
+//            return new ModelAndView(request.getServletPath());
         }else {
             // 显示错误的json提示
             return null;

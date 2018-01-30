@@ -18,7 +18,8 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserDao userDao;
     public User getUserById(Integer id) {
-        return userDao.unique(id);
+        User user = userDao.unique(id);
+        return user;
     }
     @Override
     public List<User> select(String name) {

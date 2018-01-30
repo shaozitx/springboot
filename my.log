@@ -1,0 +1,10 @@
+2018-01-23 16:04:33.130  INFO 12137 --- [restartedMain] c.y.springboot.SpringbootApplication     : Starting SpringbootApplication on shaoqideMacBook-Air.local with PID 12137 (/Users/ouyangzhi/springboot/target/classes started by shaoqi in /Users/ouyangzhi/springboot)
+2018-01-23 16:04:33.131 DEBUG 12137 --- [restartedMain] c.y.springboot.SpringbootApplication     : Running with Spring Boot v1.5.9.RELEASE, Spring v4.3.13.RELEASE
+2018-01-23 16:04:33.136  INFO 12137 --- [restartedMain] c.y.springboot.SpringbootApplication     : No active profile set, falling back to default profiles: default
+2018-01-23 16:04:35.700  WARN 12137 --- [restartedMain] o.s.c.a.ConfigurationClassPostProcessor  : Cannot enhance @Configuration bean definition 'dataSourceConfig' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2018-01-23 16:04:35.701  WARN 12137 --- [restartedMain] o.s.c.a.ConfigurationClassPostProcessor  : Cannot enhance @Configuration bean definition 'com.ibeetl.starter.BeetlSqlConfig' since its singleton instance has been created too early. The typical cause is a non-static @Bean method with a BeanDefinitionRegistryPostProcessor return type: Consider declaring such methods as 'static'.
+2018-01-23 16:04:38.954  INFO 12137 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2018-01-23 16:04:39.479  INFO 12137 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2018-01-23 16:04:41.140  INFO 12137 --- [restartedMain] c.y.springboot.SpringbootApplication     : Started SpringbootApplication in 8.811 seconds (JVM running for 9.85)
+2018-01-23 16:05:24.964  INFO 12137 --- [Thread-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2018-01-23 16:05:24.990  INFO 12137 --- [Thread-9] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
