@@ -1,5 +1,9 @@
 package com.yhshao.springboot.util;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Arrays;
 
 /**
@@ -8,7 +12,7 @@ import java.util.Arrays;
 public class MyStringbuffer implements IStringbuffer {
 
     public char[] value = {};
-
+    int length= 0;
     MyStringbuffer(){
 
     }
@@ -30,31 +34,21 @@ public class MyStringbuffer implements IStringbuffer {
     }
     //追加字符
     public void append(char c){
-        value = Arrays.copyOf(value,value.length+1);
-        value[value.length-1] = c;
+        append(String.valueOf(c));
     }
     //指定位置插入字符
     public void insert(int pos,char b){
-        value = Arrays.copyOf(value,value.length+1);
-        for (int i = value.length-1; i > 0; i--) {
-            if (i > pos)
-               value[i] = value[i-1];
-        }
-        value[pos] = b;
+        insert(pos,String.valueOf(b));
     }
 
     //指定位置插入字符串
     public void insert(int pos,String b){
-        value = Arrays.copyOf(value,value.length+b.length());
+        // 1.移动原本的数组到对应的位置
+        char[] cs = b.toCharArray();
+        System.arraycopy(value,pos,value,pos+cs.length,length - pos);
 
-        for (int i = value.length-1; i > 0; i--) {
-            if (i > pos){
-                value[i] = value[i-b.length()];
-            }
-        }
-        for (int i = 0; i < b.toCharArray().length; i++) {
-            value[pos + i] = b.toCharArray()[i];
-        }
+        System.arraycopy(cs,0,value,pos,cs.length);
+        length = length+cs.length;
 
     }
     //从开始位置删除剩下的
@@ -87,9 +81,48 @@ public class MyStringbuffer implements IStringbuffer {
     }
     //返回长度
     public int length(){
-        return value.length;
+        return length;
     }
 
 
 
+
+    // 复制全部文件夹和文件
+    public static void copyFolder(String firFolder,String srcFolder, String destFolder){
+        String sepa = java.io.File.separator;
+        File f = new File(destFolder);
+        if (!f.exists()) f.mkdirs();
+
+        File srcf = new File(srcFolder);
+
+        for (File f1:srcf.listFiles()) {
+            if (f1.isDirectory()){  // 是文件夹就继续进入
+                copyFolder(firFolder,f1.getAbsolutePath(),destFolder);
+            }else { // 如果是文件就直接复制过去
+                String destFile = destFolder + f1.getParent().substring(firFolder.length())+sepa+f1.getName();
+                System.out.println(destFile);
+                copyFile(f1,new File(destFile));
+            }
+        }
+    }
+
+    public static void copyFile(File fromFile,File toFile) {
+
+
+        if (!toFile.exists()) {
+            toFile.getParentFile().mkdirs();
+        }
+
+        try (FileInputStream ins = new FileInputStream(fromFile);
+             FileOutputStream out = new FileOutputStream(toFile);) {
+            byte[] b = new byte[1024];
+            int n = 0;
+            while ((n = ins.read(b)) != -1) {
+                out.write(b, 0, n);
+            }
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+
+    }
 }
