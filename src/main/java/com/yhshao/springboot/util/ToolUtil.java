@@ -15,6 +15,7 @@
  */
 package com.yhshao.springboot.util;
 
+import com.stylefeng.guns.core.support.StrKit;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -44,11 +45,22 @@ public class ToolUtil {
             int number = random.nextInt(base.length());
             sb.append(base.charAt(number));
         }
-
         return sb.toString();
     }
 
-
+    /**
+     * 判断一个对象是否是时间类型
+     *
+     * @author stylefeng
+     * @Date 2017/4/18 12:55
+     */
+    public static String dateType(Object o) {
+        if (o instanceof Date) {
+            return DateUtil.getDay((Date) o);
+        } else {
+            return o.toString();
+        }
+    }
 
     /**
      * 获取异常的具体信息
@@ -188,7 +200,7 @@ public class ToolUtil {
     /**
      * 对象是否不为空(新增)
      *
-     * @param o String,List,Map,Object[],int[],long[]
+     * @param obj String,List,Map,Object[],int[],long[]
      * @return
      */
     public static boolean isNotEmpty(Object o) {
@@ -198,7 +210,7 @@ public class ToolUtil {
     /**
      * 对象是否为空
      *
-     * @param o String,List,Map,Object[],int[],long[]
+     * @param obj String,List,Map,Object[],int[],long[]
      * @return
      */
     @SuppressWarnings("rawtypes")
@@ -296,6 +308,27 @@ public class ToolUtil {
         return str;
     }
 
+    /**
+     * 格式化文本
+     *
+     * @param template 文本模板，被替换的部分用 {} 表示
+     * @param values   参数值
+     * @return 格式化后的文本
+     */
+    public static String format(String template, Object... values) {
+        return StrKit.format(template, values);
+    }
+
+    /**
+     * 格式化文本
+     *
+     * @param template 文本模板，被替换的部分用 {key} 表示
+     * @param map      参数值对
+     * @return 格式化后的文本
+     */
+    public static String format(String template, Map<?, ?> map) {
+        return StrKit.format(template, map);
+    }
 
     /**
      * 强转->string,并去掉多余空格
@@ -446,6 +479,35 @@ public class ToolUtil {
         return str;
     }
 
+    /**
+     * 当前时间
+     *
+     * @author stylefeng
+     * @Date 2017/5/7 21:56
+     */
+    public static String currentTime() {
+        return DateUtil.getTime();
+    }
+
+    /**
+     * 首字母大写
+     *
+     * @author stylefeng
+     * @Date 2017/5/7 22:01
+     */
+    public static String firstLetterToUpper(String val) {
+        return StrKit.firstCharToUpperCase(val);
+    }
+
+    /**
+     * 首字母小写
+     *
+     * @author stylefeng
+     * @Date 2017/5/7 22:02
+     */
+    public static String firstLetterToLower(String val) {
+        return StrKit.firstCharToLowerCase(val);
+    }
 
     /**
      * 判断是否是windows操作系统
