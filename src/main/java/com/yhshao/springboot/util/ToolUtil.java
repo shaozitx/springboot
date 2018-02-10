@@ -15,7 +15,8 @@
  */
 package com.yhshao.springboot.util;
 
-import com.stylefeng.guns.core.support.StrKit;
+
+import com.yhshao.springboot.support.StrKit;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -210,7 +211,7 @@ public class ToolUtil {
     /**
      * 对象是否为空
      *
-     * @param obj String,List,Map,Object[],int[],long[]
+     * @param  obj String,List,Map,Object[],int[],long[]
      * @return
      */
     @SuppressWarnings("rawtypes")

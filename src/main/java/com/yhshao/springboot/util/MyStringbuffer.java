@@ -87,42 +87,5 @@ public class MyStringbuffer implements IStringbuffer {
 
 
 
-    // 复制全部文件夹和文件
-    public static void copyFolder(String firFolder,String srcFolder, String destFolder){
-        String sepa = java.io.File.separator;
-        File f = new File(destFolder);
-        if (!f.exists()) f.mkdirs();
 
-        File srcf = new File(srcFolder);
-
-        for (File f1:srcf.listFiles()) {
-            if (f1.isDirectory()){  // 是文件夹就继续进入
-                copyFolder(firFolder,f1.getAbsolutePath(),destFolder);
-            }else { // 如果是文件就直接复制过去
-                String destFile = destFolder + f1.getParent().substring(firFolder.length())+sepa+f1.getName();
-                System.out.println(destFile);
-                copyFile(f1,new File(destFile));
-            }
-        }
-    }
-
-    public static void copyFile(File fromFile,File toFile) {
-
-
-        if (!toFile.exists()) {
-            toFile.getParentFile().mkdirs();
-        }
-
-        try (FileInputStream ins = new FileInputStream(fromFile);
-             FileOutputStream out = new FileOutputStream(toFile);) {
-            byte[] b = new byte[1024];
-            int n = 0;
-            while ((n = ins.read(b)) != -1) {
-                out.write(b, 0, n);
-            }
-        } catch (IOException e) {
-            System.out.println(e);
-        }
-
-    }
 }

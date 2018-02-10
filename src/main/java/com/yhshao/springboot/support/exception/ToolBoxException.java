@@ -15,7 +15,8 @@
  */
 package com.yhshao.springboot.support.exception;
 
-import com.stylefeng.guns.core.support.StrKit;
+
+import com.yhshao.springboot.support.StrKit;
 
 /**
  * 工具类初始化异常
